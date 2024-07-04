@@ -7,14 +7,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int days = 30;
-    num temperature = 30.87;
+    String string = 'App';
     return  Scaffold(
       appBar: AppBar(
-        title: Text('My App'),
+        title: Text('My App',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Colors.blueAccent,
       ),
       body: Center(
-        child: Text('Hello $days days World $temperature',
+        child: Text('My $days days $string Challenge',
           style: TextStyle(fontSize: 40),
           textAlign: TextAlign.center,
         ),
