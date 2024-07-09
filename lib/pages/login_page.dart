@@ -11,21 +11,20 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   String name = "";
   bool changeButton = false;
   final _formkey = GlobalKey<FormState>();
 
   moveToHome(BuildContext context) async {
-    if(_formkey.currentState!.validate()) {
-        setState(() {
-          changeButton = true;
-        });
-        await Future.delayed(Duration(seconds: 1));
-        await Navigator.pushNamed(context, MyRoutes.homeRoute);
-        setState(() {
-          changeButton = false;
-        });
+    if (_formkey.currentState!.validate()) {
+      setState(() {
+        changeButton = true;
+      });
+      await Future.delayed(Duration(seconds: 1));
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+      setState(() {
+        changeButton = false;
+      });
     } else {
       return null;
     }
@@ -38,16 +37,22 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             Image.asset(
-                "assets/images/login_image.png",
-                fit: BoxFit.fitHeight,
+              "assets/images/login_image.png",
+              fit: BoxFit.fitHeight,
             ),
-            SizedBox(height: 20,),
-            Text('WelCome $name',
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'WelCome $name',
               style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-            ),),
-            SizedBox(height: 20,),
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
               child: Form(
@@ -60,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                         label: Text("User Name"),
                       ),
                       validator: (value) {
-                        if(value!.isEmpty) {
+                        if (value!.isEmpty) {
                           return "Username Cannot be Empty";
                         } else {
                           return null;
@@ -78,41 +83,48 @@ class _LoginPageState extends State<LoginPage> {
                         label: Text("Password"),
                       ),
                       validator: (value) {
-                        if(value!.isEmpty) {
+                        if (value!.isEmpty) {
                           return "Password Cannot be Empty";
                         } else {
                           return null;
                         }
                       },
-                    )],
+                    )
+                  ],
                 ),
               ),
             ),
-            SizedBox(height: 20,),
-
+            SizedBox(
+              height: 20,
+            ),
             Material(
               color: Colors.deepPurpleAccent,
-              borderRadius:changeButton?BorderRadius.circular(60) : BorderRadius.circular(10),
+              borderRadius: changeButton
+                  ? BorderRadius.circular(60)
+                  : BorderRadius.circular(10),
               child: InkWell(
                 onTap: () => moveToHome(context),
                 child: AnimatedContainer(
                   duration: Duration(seconds: 1),
-                  width: changeButton?60: 150,
-                  height:changeButton?60: 40,
+                  width: changeButton ? 60 : 150,
+                  height: changeButton ? 60 : 40,
                   alignment: Alignment.center,
-                  child: changeButton?Icon(
-                      Icons.done,
-                      color: Colors.white,
-                  )
-                  : Text("Log In", style:
-                  TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                  ),
+                  child: changeButton
+                      ? Icon(
+                          Icons.done,
+                          color: Colors.white,
+                        )
+                      : Text(
+                          "Log In",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),
+                        ),
                 ),
               ),
-            )],
+            )
+          ],
         ),
       ),
     );
