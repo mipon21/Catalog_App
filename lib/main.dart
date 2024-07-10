@@ -3,6 +3,7 @@
 import 'package:app04/pages/home_page.dart';
 import 'package:app04/pages/login_page.dart';
 import 'package:app04/utils/routes.dart';
+import 'package:app04/widgets/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,10 +20,10 @@ class MyApp extends StatelessWidget {
 
 
     return MaterialApp(
-      theme: ThemeData(
-        fontFamily: GoogleFonts.lato().fontFamily,
-      ),
-      debugShowCheckedModeBanner: true,
+      themeMode: ThemeMode.light,
+      theme: MyTheme.lightTheme,
+      darkTheme: MyTheme.darktheme,
+      debugShowCheckedModeBanner: false,
      // home: HomePage(),
       initialRoute: "/",
       routes: {

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:app04/widgets/drawer.dart';
 
@@ -9,12 +11,15 @@ class HomePage extends StatelessWidget {
     int days = 30;
     String string = 'App';
     return  Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('My App',
-          style: TextStyle(color: Colors.white),
+        title: new Center(
+            child: new Text(
+                "Catalog App", textAlign: TextAlign.center
+            )
         ),
-        iconTheme: IconThemeData(color: Colors.white),
-        backgroundColor: Colors.blueAccent,
+        iconTheme: IconThemeData(color: Colors.black),
+        elevation: 0.5,
       ),
       body: Center(
         child: Text('My $days days $string Challenge',
