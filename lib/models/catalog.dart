@@ -1,5 +1,18 @@
+class CatalogModel {
+  static final items = [
+    Item(
+        id: 1,
+        name: "iPhone 9",
+        desc: "An apple mobile which is nothing like apple",
+        price: 549,
+        brand: "Apple",
+        image: "https://dealsdaily.co.in/cdn/shop/products/MPD5544W_1_800x.jpg?v=1602303519"
+    )
+  ];
+}
+
 class Item {
-  final String id;
+  final int id;
   final String name;
   final String desc;
   final num price;
@@ -8,13 +21,3 @@ class Item {
 
   Item({required this.id, required this.name, required this.desc, required this.price, required this.brand, required this.image});
 }
-final products = [
-  Item(
-      id: "1",
-      name: "iPhone 9",
-      desc: "An apple mobile which is nothing like apple",
-      price: 549,
-      brand: "Apple",
-      image: "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-  )
-];
