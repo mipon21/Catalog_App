@@ -4,9 +4,25 @@ import 'package:app04/models/catalog.dart';
 import 'package:app04/widgets/item_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:app04/widgets/drawer.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,5 +51,12 @@ class HomePage extends StatelessWidget {
       ),
       drawer: MyDrawer(),
     );
+  }
+
+  loadData() async {
+   var catalogJson = await rootBundle.loadString("assets/files/catalog.json");
+   var decodedData = jsonDecode(catalogJson);
+   var productsData = decodedData["products"];
+
   }
 }
