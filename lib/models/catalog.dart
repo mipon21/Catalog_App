@@ -1,14 +1,7 @@
+import 'dart:convert';
+
 class CatalogModel {
-  static final items = [
-    Item(
-        id: 1,
-        name: "iPhone 9",
-        desc: "An apple mobile which is nothing like apple",
-        price: 549,
-        color: "#33505a",
-        image: "https://dealsdaily.co.in/cdn/shop/products/MPD5544W_1_800x.jpg?v=1602303519"
-    )
-  ];
+  static List<Item> items = [];
 }
 
 class Item {
@@ -20,4 +13,26 @@ class Item {
   final String image;
 
   Item({required this.id, required this.name, required this.desc, required this.price, required this.color, required this.image});
+
+  factory Item.fromMap(Map<String, dynamic> map) {
+
+   return Item(
+        id: map["id"],
+        name: map["name"],
+        desc: map["desc"],
+        price: map["price"],
+        color: map["color"],
+        image: map["image"]
+    );
+  }
+
+  toMap() => {
+    "id" : id,
+    "name" : name,
+    "desc" : desc,
+    "price" : price,
+    "color" : color,
+    "image" : image,
+  };
+
 }
