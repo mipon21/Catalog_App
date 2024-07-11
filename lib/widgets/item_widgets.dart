@@ -19,10 +19,10 @@ class itemWidget extends StatelessWidget {
         trailing: Padding(
           padding: const EdgeInsets.all(4.0),
           child: Text(
-              "\$${item.price}",
+            "\$${item.price}",
             textScaleFactor: 1.5,
             style: TextStyle(
-              color: Colors.deepPurple,
+              color: Colors.blueAccent,
               fontWeight: FontWeight.bold,
             ),
           ),
