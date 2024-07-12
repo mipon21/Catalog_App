@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:app04/pages/home_detail.dart';
 import 'package:app04/pages/home_page.dart';
 import 'package:app04/pages/login_page.dart';
 import 'package:app04/utils/routes.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         "/" : (context)=> HomePage(),
         MyRoutes.homeRoute : (context) =>HomePage(),
         MyRoutes.loginRoute : (context) =>LoginPage(),
+        //MyRoutes.homeDetailsRoute : (context) =>HomeDetails(),
       },
     );
   }
