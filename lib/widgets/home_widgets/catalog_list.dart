@@ -1,4 +1,5 @@
 import 'package:app04/pages/home_detail.dart';
+import 'package:app04/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../models/catalog.dart';
@@ -48,8 +49,12 @@ class CatalogItem extends StatelessWidget {
                   buttonPadding: EdgeInsets.zero,
                   children: [
                     "\$${catalog.price}".text.bold.xl.make(),
-                    ElevatedButton(onPressed: (){},
-                      child: "Buy".text.color(Colors.white).make(),
+                    ElevatedButton(
+                      onPressed: () => Navigator.push(
+                          context, MaterialPageRoute(
+                          builder: (context) => HomeDetails(catalog: catalog)
+                      )),
+                      child: "Details".text.color(Colors.white).make(),
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
                             Colors.blueAccent,
