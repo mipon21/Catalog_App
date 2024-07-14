@@ -57,7 +57,7 @@ class CatalogItem extends StatelessWidget {
                       child: "Details".text.color(Colors.white).make(),
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                            Colors.blueAccent,
+                            context.theme.floatingActionButtonTheme.backgroundColor,
                           ),
                           shape: MaterialStateProperty.all(
                               StadiumBorder()
@@ -70,6 +70,6 @@ class CatalogItem extends StatelessWidget {
             ))
           ],
         )
-    ).white.rounded.square(150).make().py16();
+    ).color(context.cardColor).rounded.square(150).make().py16();
   }
 }

@@ -18,19 +18,19 @@ class HomeDetails extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: "Details".text.color(Colors.blueAccent).bold.xl2.make(),
+        title: "Details".text.color(context.primaryColor).bold.xl2.make(),
         centerTitle: true,
         iconTheme: IconThemeData(
-          color: Colors.blueAccent
+          color: context.theme.primaryColor
         ),
       ),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.theme.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
           children: [
-            "\$${catalog.price}".text.bold.xl3.color(Colors.blueAccent).make(),
+            "\$${catalog.price}".text.bold.xl3.color(context.primaryColor).make(),
             ElevatedButton.icon(onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
               icon: Icon(
                   Icons.shopping_cart,
@@ -39,7 +39,7 @@ class HomeDetails extends StatelessWidget {
               label: "Add To Cart".text.xl.color(Colors.white).make(),
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
-                    Colors.blueAccent,
+                    context.theme.floatingActionButtonTheme.backgroundColor,
                   ),
                   shape: MaterialStateProperty.all(
                       StadiumBorder()
@@ -49,7 +49,7 @@ class HomeDetails extends StatelessWidget {
           ],
         ).pOnly(right: 16, left: 16, bottom: 32),
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -64,7 +64,7 @@ class HomeDetails extends StatelessWidget {
                   arcType: VxArcType.convey,
                   edge: VxEdge.top,
                     child: Container(
-                      color: Colors.white,
+                      color: context.cardColor,
                       width: context.screenWidth,
                       child: SingleChildScrollView(
                         child: Column(

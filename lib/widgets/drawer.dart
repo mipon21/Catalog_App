@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -10,7 +11,7 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Colors.white,
+        color: context.canvasColor,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -19,10 +20,14 @@ class MyDrawer extends StatelessWidget {
                 child: UserAccountsDrawerHeader(
                   margin: EdgeInsets.zero,
                   decoration: BoxDecoration(
-                    color: Colors.blueAccent,
+                    color: context.theme.secondaryHeaderColor,
                   ),
-                  accountName: Text("Mipon Rahman"),
-                  accountEmail: Text("mipon5500u@gmail.com"),
+                  accountName: Text("Mipon Rahman",style: TextStyle(
+                    color: Colors.white
+                  ),),
+                  accountEmail: Text("mipon5500u@gmail.com",style: TextStyle(
+                      color: Colors.white
+                  ),),
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: AssetImage("assets/images/img.png"),
                   ),
