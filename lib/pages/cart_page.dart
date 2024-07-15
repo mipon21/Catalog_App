@@ -11,13 +11,13 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.blueAccent
+          color: context.primaryColor
         ),
         backgroundColor: Colors.transparent,
-        title: "Cart".text.color(Colors.blueAccent).bold.xl2.make(),
+        title: "Cart".text.color(context.primaryColor).bold.xl2.make(),
         centerTitle: true,
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
 
     );
   }
