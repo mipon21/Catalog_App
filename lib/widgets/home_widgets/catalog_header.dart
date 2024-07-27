@@ -31,11 +31,8 @@ class CatalogHeader extends StatelessWidget {
               ],
             ).pOnly(bottom: 20),
           ),
-          IconButton(
-            onPressed: (){},
-            icon: Icon(Icons.dark_mode),
-            iconSize: 30,
-            color: context.theme.primaryColor,
+          SizedBox(
+            width: 30.0,
           )
         ],
       ),

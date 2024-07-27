@@ -14,7 +14,7 @@ class CatalogList extends StatelessWidget {
         shrinkWrap: true,
         itemCount: CatalogModel.items.length,
         itemBuilder: (context, index){
-          final catalog = CatalogModel.getByPosition(index);
+          final catalog = CatalogModel.items[index];
           return InkWell(
               onTap: () => Navigator.push(context, MaterialPageRoute(
                   builder: (context) => HomeDetails(
@@ -57,6 +57,7 @@ class CatalogItem extends StatelessWidget {
                       )),
                       child: "Details".text.color(Colors.white).make(),
                       style: ButtonStyle(
+
                           backgroundColor: MaterialStateProperty.all(
                             context.theme.floatingActionButtonTheme.backgroundColor,
                           ),

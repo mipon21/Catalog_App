@@ -31,6 +31,15 @@ class MyDrawer extends StatelessWidget {
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: AssetImage("assets/images/img.png"),
                   ),
+                  otherAccountsPictures: [
+                   // onTap((){}),
+                    IconButton(
+                      onPressed: (){},
+                      icon: Icon(Icons.dark_mode),
+                      iconSize: 30,
+                      color: context.theme.primaryColor,
+                    )
+                  ],
                 ),
             ),
             ListTile(
