@@ -20,14 +20,13 @@ class CatalogHeader extends StatelessWidget {
               },
               icon: Icon(Icons.menu),
               iconSize: 30,
-              color: context.theme.primaryColor,
           ),
           Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                "Catalog App".text.xl5.bold.color(context.theme.primaryColor).make(),
-                "Trending Products".text.color(context.theme.primaryColor).xl2.make(),
+                "Catalog App".text.xl5.bold.color(context.theme.iconTheme.color).make(),
+                "Trending Products".text.color(context.theme.iconTheme.color).xl2.make(),
               ],
             ).pOnly(bottom: 20),
           ),

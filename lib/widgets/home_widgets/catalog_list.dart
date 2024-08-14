@@ -1,3 +1,4 @@
+import 'package:app04/models/cart.dart';
 import 'package:app04/pages/home_detail.dart';
 import 'package:app04/utils/routes.dart';
 import 'package:flutter/material.dart';
@@ -50,22 +51,7 @@ class CatalogItem extends StatelessWidget {
                   buttonPadding: EdgeInsets.zero,
                   children: [
                     "\$${catalog.price}".text.bold.xl.make(),
-                    ElevatedButton(
-                      onPressed: () => Navigator.push(
-                          context, MaterialPageRoute(
-                          builder: (context) => HomeDetails(catalog: catalog)
-                      )),
-                      child: "Details".text.color(Colors.white).make(),
-                      style: ButtonStyle(
-
-                          backgroundColor: MaterialStateProperty.all(
-                            context.theme.floatingActionButtonTheme.backgroundColor,
-                          ),
-                          shape: MaterialStateProperty.all(
-                              StadiumBorder()
-                          )
-                      ),
-                    )
+                    _AddToCart(catalog: catalog)
                   ],
                 ).pOnly(right: 8.0)
               ],
@@ -73,5 +59,46 @@ class CatalogItem extends StatelessWidget {
           ],
         )
     ).color(context.cardColor).rounded.square(150).make().py16();
+  }
+}
+
+class _AddToCart extends StatefulWidget {
+  const _AddToCart({
+    super.key,
+    required this.catalog,
+  });
+
+  final Item catalog;
+
+  @override
+  State<_AddToCart> createState() => _AddToCartState();
+}
+
+class _AddToCartState extends State<_AddToCart> {
+
+   bool isAdded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        isAdded = isAdded.toggle();
+        final _catalog = CatalogModel();
+        final _cart = CartModel();
+        _cart.catalog = _catalog;
+        _cart.add(widget.catalog);
+        setState(() {});
+      },
+      child: isAdded ? Icon(Icons.done): "Details".text.color(Colors.white).make(),
+      style: ButtonStyle(
+    
+          backgroundColor: MaterialStateProperty.all(
+            context.theme.floatingActionButtonTheme.backgroundColor,
+          ),
+          shape: MaterialStateProperty.all(
+              StadiumBorder()
+          )
+      ),
+    );
   }
 }
