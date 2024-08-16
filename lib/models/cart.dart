@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 class CartModel {
 
 
-  static final cartModel = CartModel._internal();
-  CartModel._internal();
-  factory CartModel() => cartModel;
+  // static final cartModel = CartModel._internal();
+  // CartModel._internal();
+  // factory CartModel() => cartModel;
 
 
 

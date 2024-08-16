@@ -3,7 +3,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:app04/models/cart.dart';
-import 'package:app04/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -73,14 +72,7 @@ class _CartTotal extends StatelessWidget {
   }
 }
 
-class _CartList extends StatefulWidget {
-  const _CartList({super.key});
-
-  @override
-  State<_CartList> createState() => _CartListState();
-}
-
-class _CartListState extends State<_CartList> {
+class _CartList extends StatelessWidget {
   final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
@@ -90,9 +82,8 @@ class _CartListState extends State<_CartList> {
           trailing: IconButton(
             icon: Icon(Icons.remove_circle_outline),
             onPressed: (){
-              setState(() {
-                _cart.remove(_cart.items[index]);
-              });
+              _cart.remove(_cart.items[index]);
+              // setState(() {});
             },
           ),
           title: _cart.items[index].name.text.make(),
