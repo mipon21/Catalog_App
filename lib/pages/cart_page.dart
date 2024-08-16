@@ -42,8 +42,8 @@ class _CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [AddMutation, RemoveMutation]);
     final CartModel _cart = (VxState.store as MyStore).cart;
-
     return SizedBox(
       height: 200,
       child: Row(
@@ -59,7 +59,6 @@ class _CartTotal extends StatelessWidget {
             },
             mutations: {RemoveMutation},
           ),
-
           30.widthBox,
           ElevatedButton(
             onPressed: () {
